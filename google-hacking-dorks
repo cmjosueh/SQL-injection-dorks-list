@@ -1,0 +1,15 @@
+Intitle: Index.of “parent directory”
+Intitle: Index.of .admin
+index.of ws_ftp.log
+intitle:index.of  "server at" (CentOS)
+intitle:index.of  inurl:"/ admin /*"
+intitle:index.of  index.php.bak
+site:udemy.com
+login | logon intranet
+site:mit.edu username | userid | employee.ID | "your username is"
+admin | administrator login
+-ext:html personal login bank
+filetype:c exploit "#include <stdio.h>"
+inurl:anony/mjpg.cgi
+ext:pwd  inurl:_vti_pvt  inurl:(servive | authors | administrators)
+intext:(password | passcode | pass) intext:(username | userid | user) admin filetype:txt
