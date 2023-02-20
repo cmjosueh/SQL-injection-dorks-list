@@ -1,15 +1,73 @@
-Intitle: Index.of “parent directory”
-Intitle: Index.of .admin
+Intitle: Index.of “parent directory” 
+#comando que nos permitira listar o localizar directorios
+#que no tienen contemplado el archivo index.html o index.php (nos permite ver directorios privados
+#al momento de hacer la busqueda con el comando los directorios que nos muestre estarian vulnerables
+#si queremos buscar algo más especifico lo colocamos despues del comando
+#ejemplo: Intitle: Index.of “parent directory” rock
+
+Intitle: Index.of .admin 
+#comando que nos puede permitir listar directorios administrativos
+#Nos va a permitir listar directorios relacionados con la administración de algún servicio web
+
 index.of ws_ftp.log
+#Comamdo que nos va a permitir ubicar los archivos log dentro de servidores, los archivos
+#log nos brindan mucha información del servidor, como es la estructura del servidor, que tipo
+#S.O esta utilizando ese servidor, desde que IP esta recibiendo información.
+#buscar el archivo.log para ver la información.
+
 intitle:index.of  "server at" (CentOS)
+#comando que permite saber la versión, el puerto (si es que el puerto 80 esta abierto)
+#y el nombre del servidor  
+
 intitle:index.of  inurl:"/ admin /*"
+#este comando me lista en la url busca donde se encuentran las carpetas o carpeta
+#admin
+
+
 intitle:index.of  index.php.bak
+#Un archivo con el nombre index.php.bak empaqueta un backup (copia de seguridad) el cual un
+#atacante puede encontrar disponible en un servidor, descargarse el archivo, desempaquetarlo
+#y ver el codigo fuente. "parece ser que esta vulnerabilidad ya fue parchada"
+
 site:udemy.com
+#Nos permite acotar una busqueda a un solo dominio, para esto podemos buscar información
+#indexada del sitio que estamos buscando. en pocas palabrar solo encontramos resultados
+#que tengan que ver con el dominio.
+#para colocar una palabra lo tenemos que colocar entre comillas.
+
 login | logon intranet
+#comando que nos va a revelar portales de intranet, como universidades, negocios, etc.
+#portales privados a los cuales solo deberia tener acceso los estudiantes, profesores, etc.
+
 site:mit.edu username | userid | employee.ID | "your username is"
+#habiendo encontrado el login de usuarios, ahora toca detectar usuarios validos, para que
+#solamente provemos ataques de fuerza bruta en las contraseñas.
+#en el ejemplo del comando:
+#site:mit.edu "encuentra información unicamente del dominio mit.edu"
+
 admin | administrator login
+# comando para buscar cuentas en las que el administrador se puede logear
+
 -ext:html personal login bank
+#revisar que hace este comando
+
+inurl:temp | inurl:tmp | inurl:backup | inurl:bak site:utn.edu.ar
+#Comando que nos va a permitir descubrir archivos temporales dentro de una web en especifico,
+#En estos archivos podemos encontrar mucha información sencible como usuarios, contraseñas, 
+#información de DNI, de documentos de identidad, pasaportes, etc. 
+
 filetype:c exploit "#include <stdio.h>"
+#tipos de archivos en c, luego el termino de busqueda exploit, y por ultimo indico la
+#sintaxis del lenguaje c
+
 inurl:anony/mjpg.cgi
+
 ext:pwd  inurl:_vti_pvt  inurl:(servive | authors | administrators)
+#ubicar usuarios y contraseñas.
+
 intext:(password | passcode | pass) intext:(username | userid | user) admin filetype:txt
+#comando para poder encontrar contraseñas en texto plano, con esto podremos encontrar 
+#archivos.txt con contraseñas
+
+
+
